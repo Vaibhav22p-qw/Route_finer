@@ -1,11 +1,11 @@
 #ifndef PARSER_H
 #define PARSER_H
-#include <cstdlib>
-#include <string>
-#include <fstream>
-#include <iostream>
-#include <vector>
-#include "Location.h"
+#include<cstdlib>
+#include<string>
+#include<fstream>
+#include<iostream>
+#include<vector>
+#include"Location.h"
 using namespace std;
 vector<Location*> locationParser(string filename, vector<Route*> routes){
     fstream locations(filename.c_str());
