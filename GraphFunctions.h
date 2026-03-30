@@ -1,57 +1,41 @@
 #ifndef GRAPHFUCNTIONS_H
 #define GRAPHFUNCTIONS_H
-
-#include <string>
-#include <vector>
-#include <iostream>
-#include <queue>
-#include <cstdlib>
-#include <cmath>
-#include <stack>
-
+#include<string>
+#include<vector>
+#include<iostream>
+#include<queue>
+#include<cstdlib>
+#include<cmath>
+#include<stack>
 #include "Location.h"
 #include "Route.h"
 #include "FileOperations.h"
-
 using namespace std;
-
 class Graph{
 public:
 	vector<Location*> cities;
 	vector<Route*> routes;
-
 	int numExists;
-
 	Graph(string nodesFile, string edgesFile);
-
 	int getCityIndex(string key);
 	Location* getCity(string key);
-
 	float getWeight(string startS, string endS, bool costOrTime);
 	float getWeight(Location* start, Location* end, bool costOrTime);
-
 	void Dijkstras(string startS, bool CostOrTime);
-
 	vector<Location*>* adjacentLocations(Location* city);
 	Route* getRoute(Location* start, bool costOrTime, float totalDistance);
-
 	vector<Route*>* adjacentRoutes(Location* city);
-	
 	stack<Location*>cityStacker(string destinationS);
 	stack<Route*> routeStacker(string destinationS, bool costOrTime);
 	Location* getSmallest();
 	void printShortestRoute(string destinationS);
 	void printOutRoutes();
 };
-
 Graph::Graph(string nodesFile, string edgesFile){
 	routes = routeParser(edgesFile);
 	cities = locationParser(nodesFile, routes);
-
 	numExists = cities.size();
-	
 }
-
 int Graph::getCityIndex(string key){
 	int output = -1;
 	for(int i = 0; i < cities.size(); i++){
@@ -62,7 +46,6 @@ int Graph::getCityIndex(string key){
 	}
 	return output;
 }
-
 Location* Graph::getCity(string key){
 	int i = getCityIndex(key);
 	if(i != -1){
@@ -72,12 +55,9 @@ Location* Graph::getCity(string key){
 		return NULL;
 	}
 }
-
-
 float Graph::getWeight(string startS, string endS, bool costOrTime){
 	Location* start = getCity(startS);
 	Location* end = getCity(endS);
-
 	for(int i = 0; i < routes.size(); i++){
 		if(routes[i] -> doesConnect(start, end)){
 			if(costOrTime){
@@ -88,12 +68,9 @@ float Graph::getWeight(string startS, string endS, bool costOrTime){
 			}
 		}
 	}
-
 	return -1;
 }
-
 float Graph::getWeight(Location* start, Location* end, bool costOrTime){
-
 	for(int i = 0; i < routes.size(); i++){
 		if(routes[i] -> doesConnect(start, end)){
 			if(costOrTime){
@@ -104,18 +81,12 @@ float Graph::getWeight(Location* start, Location* end, bool costOrTime){
 			}
 		}
 	}
-
 	return -1;
 }
-
-
-void Graph::Dijkstras(string startS, bool costOrTime){
-	
+void Graph::Dijkstras(string startS, bool costOrTime){	
 	Location* start = getCity(startS);
 	float totalDistance = 0;
-
 	start -> lengthFromStart = 0;
-
 	priority_queue<Location*,vector<Location*>,compareLocation> minHeap;
 
 	for(int i = 0; i < cities.size(); i++){
@@ -259,15 +230,12 @@ Location* Graph::getSmallest(){
 			pos = i;
 		}
 	}
-
 	cout << "Pos: " << pos << endl;
 	cities[pos]->exists=false;
 	numExists--;
 	return output;
 }
-
 void Graph::printShortestRoute(string destinationS){
-
 	Location* destination = getCity(destinationS);
 	Location* previous = destination;
 	float distFromStart = 0;
@@ -278,8 +246,6 @@ void Graph::printShortestRoute(string destinationS){
 	cout<<endl;
 	cout<<"Distance: "<<destination->lengthFromStart<<endl;
 }
-
-
 void Graph::printOutRoutes(){
 	for(int i = 0; i < cities.size(); i++){
 			cout << "Routes from: " << cities[i] -> capital << endl;
