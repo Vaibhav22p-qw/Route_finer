@@ -19,10 +19,8 @@ public:
 		~Route();
 		Route(Location*org, Location*dest);
 		Route(Location*org, Location*dest, string trans, float tim, float cst, string notee);
-
 		bool doesConnect(Location*start, Location*end);
 };
-
 Route::Route(){
 	origin=NULL;
 	destination=NULL;
@@ -41,7 +39,6 @@ Route::Route(Location*org, Location*dest){
 	cost=0;
 	note="";
 };
-
 Route::Route(Location*org, Location*dest, string trans, float tim, float cst, string notee){
 	origin=org;
 	destination=dest;
@@ -54,7 +51,7 @@ Route::Route(Location*org, Location*dest, string trans, float tim, float cst, st
 	}
 };
 bool Route::doesConnect(Location*start, Location*end){
-	if(start==origin && end==destination){
+	if(start==origin&&end==destination){
 			return true;
 	}
 	else{
