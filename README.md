@@ -1,16 +1,16 @@
-# Dijkstra Travel Planner (India-Based)
+# Dijkstra Traverse (India-Based)
 
 ## Overview
 
-This project implements a travel route planner using Dijkstra’s Algorithm to compute the shortest path between cities. The system models cities as nodes and routes as weighted edges, where weights represent distance or time.
+* This project implements a travel route using **Dijkstra’s Algorithm** to compute the shortest path between cities. The system models cities as nodes and routes as weighted edges, where weights represent distance or time.
 
-The dataset has been customized to include Indian cities such as Delhi, Lucknow, Prayagraj, Varanasi, Mumbai, and others to simulate real-world routing scenarios.
+* The dataset has been customized to include Indian cities such as **Delhi, Lucknow, Prayagraj, Varanasi, Mumbai, and others** to simulate real-world routing scenarios.
 
 ---
 
 ## Key Features
 
-* Shortest path calculation using Dijkstra’s Algorithm
+* Shortest path calculation using **Dijkstra’s Algorithm**
 * Graph-based representation of cities and routes
 * Supports distance/time-based routing
 * Custom dataset with Indian cities
@@ -20,8 +20,8 @@ The dataset has been customized to include Indian cities such as Delhi, Lucknow,
 
 ## Tech Stack
 
-* Language: C++
-* Concepts: Graphs, Dijkstra Algorithm, Priority Queue
+* Language: **C++**
+* Concepts: Graphs, Dijkstra Algorithm, Priority Queue, Header Files
 * Data Handling: CSV files
 
 ---
@@ -43,8 +43,8 @@ Destination: Varanasi
 
 ## Sample Output
 
-Shortest Path: Delhi → Lucknow → Prayagraj → Varanasi
-Total Distance: 870
+**Shortest Path:** *Delhi → Lucknow → Prayagraj → Varanasi*
+**Total Distance:** *870*
 
 ---
 
@@ -62,7 +62,7 @@ run
 * Graph Representation (Adjacency List)
 * Dijkstra’s Shortest Path Algorithm
 * Greedy Strategy
-* Time Complexity: O((V + E) log V)
+* **Time Complexity:** *O((V + E) log V)*
 
 ---
 
